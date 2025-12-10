@@ -181,7 +181,7 @@ You can compare:
 Our experiments show:
 
 - **Non-SMOTE embeddings** vary normally across model sizes  
-- **SMOTE embeddings** should produce better CV and Jackknife values, due to modified sequence distribution  
+- **SMOTE embeddings** should produce better CV and Jackknife values, due to the modified sequence distribution  
 
 ---
 
@@ -190,12 +190,8 @@ Our experiments show:
 If you use this pipeline in research, cite: 
 https://www.sciencedirect.com/science/article/abs/pii/S0933365717305171?fr=RR-2&ref=pdf_download&rr=9abb75db4b3ee0e0
 
-
-```
 ESM-2: Evolutionary Scale Modeling using Transformations
-Facebook AI Research https://huggingface.co/facebook/esm2_t6_8M_UR50D
-
-```
+Facebook AI Research: https://huggingface.co/facebook/esm2_t6_8M_UR50D
 
 ---
 
