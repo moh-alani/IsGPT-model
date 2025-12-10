@@ -1,0 +1,39 @@
+{
+    "independent_test": {
+        "accuracy": 0.984375,
+        "sensitivity": 0.9230769230769231,
+        "specificity": 1.0,
+        "mcc": 0.9514859136040756,
+        "tp": 12,
+        "tn": 51,
+        "fp": 0,
+        "fn": 1
+    },
+    "cross_validation_10_fold": {
+        "accuracy": 0.8433179723502304,
+        "sensitivity": 0.8387096774193549,
+        "specificity": 0.847926267281106,
+        "mcc": 0.6866651098852296,
+        "tp": 182,
+        "tn": 184,
+        "fp": 33,
+        "fn": 35
+    },
+    "jackknife": {
+        "accuracy": 0.8571428571428571,
+        "sensitivity": 0.8663594470046083,
+        "specificity": 0.847926267281106,
+        "mcc": 0.7144070959743422,
+        "tp": 188,
+        "tn": 184,
+        "fp": 33,
+        "fn": 29
+    },
+    "settings": {
+        "model_name": "facebook/esm2_t30_150M_UR50D",
+        "use_smote": true,
+        "num_epochs": 20,
+        "batch_size": 4,
+        "learning_rate": 2e-05
+    }
+}

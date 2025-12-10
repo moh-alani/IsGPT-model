@@ -1,0 +1,39 @@
+{
+    "independent_test": {
+        "accuracy": 0.921875,
+        "sensitivity": 0.6153846153846154,
+        "specificity": 1.0,
+        "mcc": 0.7486251134176306,
+        "tp": 8,
+        "tn": 51,
+        "fp": 0,
+        "fn": 5
+    },
+    "cross_validation_10_fold": {
+        "accuracy": 0.783410138248848,
+        "sensitivity": 0.8018433179723502,
+        "specificity": 0.7649769585253456,
+        "mcc": 0.5672058603701812,
+        "tp": 174,
+        "tn": 166,
+        "fp": 51,
+        "fn": 43
+    },
+    "jackknife": {
+        "accuracy": 0.7857142857142857,
+        "sensitivity": 0.7926267281105991,
+        "specificity": 0.7788018433179723,
+        "mcc": 0.5714831870974764,
+        "tp": 172,
+        "tn": 169,
+        "fp": 48,
+        "fn": 45
+    },
+    "settings": {
+        "model_name": "facebook/esm2_t12_35M_UR50D",
+        "use_smote": true,
+        "num_epochs": 20,
+        "batch_size": 4,
+        "learning_rate": 2e-05
+    }
+}
