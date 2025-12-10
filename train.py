@@ -1,8 +1,6 @@
 """
 Sub-Golgi Protein Classification using ESM-2 Transformer
-Beats the isGPT paper: 96.9% vs 95.3% accuracy on independent test set
-
-This script trains an ESM-2 150M protein language model with SMOTE balancing
+This script trains an ESM-2 protein language model with SMOTE balancing
 to classify proteins into cis-Golgi or trans-Golgi subtypes.
 """
 
@@ -55,18 +53,12 @@ class ProteinClassifier(nn.Module):
 
 def get_hidden_size(model_name):
     model_name = model_name.lower()
-    if "esm3" in model_name:
-        return 512
-    elif "150m" in model_name:
+    if "150m" in model_name:
         return 640
     elif "35M" in model_name:
         return 480
     elif "8m" in model_name:
         return 320
-    elif "prot_t5" in model_name:
-        return 1024
-    elif "prot_bert" in model_name:
-        return 1024
     else:
         return 320  # fallback
 
@@ -400,16 +392,7 @@ def train_model(model_name='facebook/esm2_t30_150M_UR50D',
     if metrics['accuracy'] > 0.953:
         print(f"\n BEAT THE PAPER by {(metrics['accuracy']-0.953)*100:.2f}pp!")
     
-
-    # EMBEDDINGS FOR CV & LOO
-    embed_file = Path(output_dir) / f"{model_prefix}_embeddings{smote_tag}.npy"
-
-    if embed_file.exists():
-        embeddings = load_embeddings(embed_file)
-    else:
-        embeddings = compute_and_save_embeddings(train_seqs, model_name, embed_file, device)
-    
-        
+    # Prepare embeddings for CV and Jackknife
     print("\nPreparing embeddings + labels for CV & Jackknife...")
 
     if use_smote:
@@ -513,11 +496,3 @@ if __name__ == '__main__':
         device=args.device,
         use_smote=args.use_smote
     )
-
-
-# python train.py --model facebook/esm2_t6_8M_UR50D --device cpu                --- IN PROGRESS ---
-# python train.py --model facebook/esm2_t6_8M_UR50D --device cpu --use-smote
-# python train.py --model facebook/esm2_t12_35M_UR50D --device cpu
-# python train.py --model facebook/esm2_t12_35M_UR50D --device cpu --use-smote
-# python train.py --model facebook/esm2_t30_150M_UR50D
-# python train.py --model facebook/esm2_t30_150M_UR50D --use-smote 
