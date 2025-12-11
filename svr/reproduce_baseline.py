@@ -1,13 +1,3 @@
-"""
-Baseline Reproduction Script (Python Version)
-This script reproduces the baseline method from the paper exactly.
-
-TO REPRODUCE THE BASELINE:
-1. Set the parameters below according to the paper's baseline method
-2. Ensure the required data files exist (or convert RDS files to CSV/pickle)
-3. Run this script: python reproduce_baseline.py
-"""
-
 import os
 import sys
 import pandas as pd
